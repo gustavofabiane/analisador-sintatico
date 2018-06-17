@@ -1,0 +1,9 @@
+input.is-invalid {
+    background-color: #ffb1b8;
+    color: #dc3545;
+}
+
+input.is-valid {
+    background-color: #a3f5b6;
+    color: #28a745;
+}
