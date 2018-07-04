@@ -24,111 +24,142 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2 class="">Analisador Sintático - Compiladores</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-color-padrao">
+        <a class="navbar-brand" href="#">Analisador Sintático - Compiladores</a>
+    </nav>
+    <div class="container-fluid">
         <hr>
-        <div class="row mb-3">
-            <div class="col-sm-4" style="font-family: monospace">
-                GRAMÁTICA
-                <hr> S ::= cBb | CB
-                <br> A ::= bBc | a
-                <br> B ::= dA&nbsp; | aC | &epsilon;
-                <br> C ::= bA&nbsp; | aBb
-            </div>
-            <div class="col-sm-4" style="font-family: monospace">
-                FIRST
-                <hr> S ::= { a, b, c }
-                <br> A ::= { a, b }
-                <br> B ::= { a, d, &epsilon; }
-                <br> C ::= { a, b }
-            </div>
-            <div class="col-sm-4" style="font-family: monospace">
-                FOLLOW
-                <hr> S ::= { $ }
-                <br> A ::= { a, b, c, d, $ }
-                <br> B ::= { b, c, $ }
-                <br> C ::= { a, b, c, d, $ }
-            </div>
-        </div>
+        
         <div class="row">
-            <div class="col-sm-6">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>a</th>
-                            <th>b</th>
-                            <th>c</th>
-                            <th>d</th>
-                            <th>$</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>S</th>
-                            <td>S ::= CB</td>
-                            <td>S ::= CB</td>
-                            <td>S ::= cBb</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>A</th>
-                            <td>A ::= a</td>
-                            <td>A ::= bBc</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>B</th>
-                            <td>B ::= aC</td>
-                            <td>B ::= &epsilon;</td>
-                            <td>B ::= &epsilon;</td>
-                            <td>B ::= dA</td>
-                            <td>B ::= &epsilon;</td>
-                        </tr>
-                        <tr>
-                            <th>C</th>
-                            <td>C ::= aBb</td>
-                            <td>C ::= bA</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group form-group-sm">
-                    <label for="sentence">Verificar sentença:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-primary" type="button" id="btn-generate">Gerar</button>
-                            <button class="btn btn-danger" type="button" id="btn-clean" title="Limpar">&times;</button>
+            <div class="col-sm-5 adjust-margin-top">
+                <div class="row mb-3">
+                    <div class="col-sm-4">
+                        <h4>GRAMÁTICA</h4>
+                        <hr class="border-hr1">
+                        <hr class="border-hr2"> 
+                        <div style="font-family: monospace">
+                            S ::= cBb | CB
+                            <br> A ::= bBc | a
+                            <br> B ::= dA&nbsp; | aC | &epsilon;
+                            <br> C ::= bA&nbsp; | aBb
                         </div>
-                        <input type="text" class="form-control" placeholder="Digite aqui..." id="input-sentence">
-                        <div class="input-group-append">
-                            <button class="btn btn-info" type="button" id="btn-verify-step">Passo-à-passo</button>
-                            <button class="btn btn-success" type="button" id="btn-verify-sentence">Verificar</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>FIRST</h4>
+                        <hr class="border-hr1">
+                        <hr class="border-hr2"> 
+                        <div style="font-family: monospace">
+                            S ::= { a, b, c }
+                            <br> A ::= { a, b }
+                            <br> B ::= { a, d, &epsilon; }
+                            <br> C ::= { a, b }
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>FOLLOW</h4>
+                        <hr class="border-hr1">
+                        <hr class="border-hr2"> 
+                        <div style="font-family: monospace">
+                            S ::= { $ }
+                            <br> A ::= { a, b, c, d, $ }
+                            <br> B ::= { b, c, $ }
+                            <br> C ::= { a, b, c, d, $ }
                         </div>
                     </div>
                 </div>
-                <table class="table table-sm table-bordered debug-table">
-                    <thead>
-                        <tr>
-                            <th>Iteração</th>
-                            <th>Pilha</th>
-                            <th>Entrada</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="row"> 
+                    <div class="col-sm-12 margin-top">
+                        <table class="table table-bordered">
+                            <thead class="bg-style-table">
+                                <tr>
+                                    <th></th>
+                                    <th>a</th>
+                                    <th>b</th>
+                                    <th>c</th>
+                                    <th>d</th>
+                                    <th>$</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="bg-style-table">S</th>
+                                    <td>S ::= CB</td>
+                                    <td>S ::= CB</td>
+                                    <td>S ::= cBb</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-style-table">A</th>
+                                    <td>A ::= a</td>
+                                    <td>A ::= bBc</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-style-table">B</th>
+                                    <td>B ::= aC</td>
+                                    <td>B ::= &epsilon;</td>
+                                    <td>B ::= &epsilon;</td>
+                                    <td>B ::= dA</td>
+                                    <td>B ::= &epsilon;</td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-style-table">C</th>
+                                    <td>C ::= aBb</td>
+                                    <td>C ::= bA</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-                    </tbody>
-                </table>
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-11 adjust-margin">
+                        <div class="form-group form-group-sm">
+                            <label for="sentence">Verificar sentença:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-info" type="button" id="btn-generate">Gerar</button>
+                                    <button class="btn btn-danger" type="button" id="btn-clean" title="Limpar">&times;</button>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Digite aqui..." id="input-sentence">
+                                <div class="input-group-append">
+                                    <button class="btn btn-info" type="button" id="btn-verify-step">Passo-à-passo</button>
+                                    <button class="btn bg-color-padrao" type="button" id="btn-verify-sentence">Verificar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-sm table-bordered debug-table">
+                            <thead class="bg-style-table">
+                                <tr>
+                                    <th>Iteração</th>
+                                    <th>Pilha</th>
+                                    <th>Entrada</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+     <div class="footer">
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">
+                © Gustavo H. Fabiane | Ciência da Computação | Turma 2014 | Compiladores.
+            </a>
+        </nav>
     </div>
 </body>
 
